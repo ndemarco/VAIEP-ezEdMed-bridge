@@ -1,0 +1,6 @@
+InfoHandlerUser=
+InfoHandlerPassword=
+InfoHandlerHostKey=ssh-rsa 2048 CzRyUnxB/Z2Y/slidRvsPtoUWTAIfLcR+AN12SKBqR8=
+VAIEPUser=
+VAIEPPassword=
+VAIEPHostKey=ssh-dss 1024 wblnLNS8ud9breteJyNHp+bcJcsaM/70mUNKmQZqMTY=
