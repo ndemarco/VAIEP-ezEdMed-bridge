@@ -1,0 +1,7 @@
+open sftp://%VAIEPUser%:%VAIEPPassword%@secureftp.pcgeducation.com/ -hostkey="%VAIEPHostKey%" -rawsettings ProxyPort=0
+
+cd /
+
+synchronize local -delete Reports Reports
+
+exit
