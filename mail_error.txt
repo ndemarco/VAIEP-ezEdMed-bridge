@@ -1,0 +1,5 @@
+To: %email_to%
+From: %email_from%
+Subject: FAIL: VAIEP->InfoHandler upload
+
+The VAIEP -> InfoHandler upload failed. Please check the attached log for more details.

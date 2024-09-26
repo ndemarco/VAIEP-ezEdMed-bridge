@@ -1,0 +1,5 @@
+email_enabled=false
+email_from=noreply@yourdomain.com
+email_to=admin@yourdomain.com
+PCG_SCP_URL: 10.71.73.164
+InfoHandler_SFTP_URL:

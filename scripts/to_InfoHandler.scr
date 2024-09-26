@@ -1,0 +1,11 @@
+# Open the SFTP connection to the InfoHandler server using the upload_URL env var
+open %upload_URL% -hostkey="%InfoHandlerHostKey%"
+
+# Change to the remote directory
+cd /
+
+# Synchronize the local Reports folder with the remote folder, deleting extra remote files
+synchronize remote -delete Reports ./reports
+
+# Exit the session
+exit

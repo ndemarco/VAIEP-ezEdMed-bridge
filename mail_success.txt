@@ -1,0 +1,5 @@
+To: %email_to%
+From: %email_from%
+Subject: SUCCESS: VAIEP->InfoHandler upload
+
+The VAIEP -> InfoHandler upload was successful.

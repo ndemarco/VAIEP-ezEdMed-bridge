@@ -1,0 +1,12 @@
+# Open the SFTP connection to the PCG server using the download_URL env var
+open %download_URL% -hostkey="%VAIEPHostKey%"
+
+# Change to the remote directory
+cd /
+
+# Synchronize the local Reports folder with the remote folder, deleting extra local files
+synchronize local -delete Reports ./downloads
+
+# Exit the session
+exit
+
