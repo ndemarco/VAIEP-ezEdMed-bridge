@@ -8,6 +8,11 @@ set emailEnabled=false
 REM Remove any existing error file
 if exist %errorFile% del %errorFile%
 
+REM Prepare for new payload by cleaning up .\reports
+del .\reports\*.* /q
+rmdir /s /q .\reports
+mkdir .\reports
+
 REM Check if config.txt exists and is readable
 if not exist %configFile% (
     echo %DATE% %TIME% Error: %configFile% not found on %COMPUTERNAME% >> %errorFile%
@@ -55,7 +60,7 @@ if %ERRORLEVEL% neq 0 (
     goto error
 )
 
-REM Download files from PCG using from_PCG.scr to 
+REM Download files from PCG using from_PCG.scr
 "WinSCP.exe" /log="WinSCP_fromPCG.log" /ini=nul /command "open scp://%download_URL%" /script=".\scripts\from_PCG.scr"
 if %ERRORLEVEL% neq 0 (
     echo %DATE% %TIME% Error: WinSCP download from PCG failed >> %errorFile%
@@ -63,10 +68,9 @@ if %ERRORLEVEL% neq 0 (
     goto error
 )
 
-TODO: Verify this will check that some data was downloaded from PCG. We're looking for a .zip file.
-REM Verify if download data exists and is readable
-if not exist .\downloads\* (
-    echo %DATE% %TIME% Error: from_PCG.scr not found on %COMPUTERNAME% >> %errorFile%
+REM Verify if at least one .zip file exists in the downloads directory
+if not exist .\downloads\*.zip (
+    echo %DATE% %TIME% Error: No .zip files downloaded from PCG >> %errorFile%
     set errorFlag=1
     goto error
 )
@@ -79,9 +83,10 @@ if %ERRORLEVEL% neq 0 (
     goto error
 )
 
-REM Clean up ZIP files after extraction
-del .\downloads\*.*
-TODO: Remove any subfolders also
+REM Clean up ZIP files and any subfolders after extraction
+del .\downloads\*.* /q
+rmdir /s /q .\downloads
+mkdir .\downloads
 
 REM Remove any .xls file with 'services' in the filename in the reports directory
 for %%f in (.\reports\*.xls) do (
