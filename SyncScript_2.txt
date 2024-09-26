@@ -1,0 +1,5 @@
+open sftp://%InfoHandlerUser%:%InfoHandlerPassword%@ihftps.infohandler.com/ -hostkey="%InfoHandlerHostKey%" -rawsettings ProxyPort=0
+
+cd /
+
+synchronize remote -delete Reports
