@@ -1,2 +1,4 @@
+# Configure, replacing the placeholder emails
+
 email_from=noreply@yourdomain.com
 email_to=admin@yourdomain.com
